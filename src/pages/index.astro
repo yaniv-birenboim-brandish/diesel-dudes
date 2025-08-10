@@ -8,9 +8,372 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>Diesel Dudes - Expert Diesel Repair & Maintenance</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			
+			body {
+				font-family: 'Arial', sans-serif;
+				line-height: 1.6;
+				color: #333;
+			}
+			
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 0 20px;
+			}
+			
+			/* Header */
+			.header {
+				background: #fff;
+				box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+				position: fixed;
+				width: 100%;
+				top: 0;
+				z-index: 1000;
+			}
+			
+			.nav {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				padding: 1rem 0;
+			}
+			
+			.logo {
+				font-size: 1.8rem;
+				font-weight: bold;
+				color: #2c5282;
+			}
+			
+			.nav-links {
+				display: flex;
+				list-style: none;
+				gap: 2rem;
+			}
+			
+			.nav-links a {
+				text-decoration: none;
+				color: #333;
+				font-weight: 500;
+			}
+			
+			.nav-links a:hover {
+				color: #2c5282;
+			}
+			
+			.contact-info {
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+			}
+			
+			.phone {
+				background: #2c5282;
+				color: white;
+				padding: 0.5rem 1rem;
+				border-radius: 5px;
+				text-decoration: none;
+			}
+			
+			/* Hero Section */
+			.hero {
+				background: linear-gradient(rgba(44, 82, 130, 0.8), rgba(44, 82, 130, 0.8)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23333" width="1200" height="600"/></svg>');
+				background-size: cover;
+				background-position: center;
+				height: 100vh;
+				display: flex;
+				align-items: center;
+				color: white;
+				text-align: center;
+			}
+			
+			.hero-content h1 {
+				font-size: 3.5rem;
+				margin-bottom: 1rem;
+			}
+			
+			.hero-content p {
+				font-size: 1.2rem;
+				margin-bottom: 2rem;
+				max-width: 600px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			
+			.cta-button {
+				background: #e53e3e;
+				color: white;
+				padding: 1rem 2rem;
+				font-size: 1.1rem;
+				border: none;
+				border-radius: 5px;
+				text-decoration: none;
+				display: inline-block;
+				transition: background 0.3s;
+			}
+			
+			.cta-button:hover {
+				background: #c53030;
+			}
+			
+			/* Services Section */
+			.services {
+				padding: 5rem 0;
+				background: #f7fafc;
+			}
+			
+			.section-title {
+				text-align: center;
+				font-size: 2.5rem;
+				margin-bottom: 3rem;
+				color: #2c5282;
+			}
+			
+			.services-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 2rem;
+			}
+			
+			.service-card {
+				background: white;
+				padding: 2rem;
+				border-radius: 10px;
+				box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+				text-align: center;
+			}
+			
+			.service-icon {
+				font-size: 3rem;
+				color: #2c5282;
+				margin-bottom: 1rem;
+			}
+			
+			.service-card h3 {
+				font-size: 1.5rem;
+				margin-bottom: 1rem;
+				color: #2c5282;
+			}
+			
+			/* About Section */
+			.about {
+				padding: 5rem 0;
+			}
+			
+			.about-content {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 3rem;
+				align-items: center;
+			}
+			
+			.stats {
+				display: flex;
+				gap: 2rem;
+				margin-top: 2rem;
+			}
+			
+			.stat {
+				text-align: center;
+			}
+			
+			.stat-number {
+				font-size: 2.5rem;
+				font-weight: bold;
+				color: #2c5282;
+			}
+			
+			/* Contact Section */
+			.contact {
+				padding: 5rem 0;
+				background: #2c5282;
+				color: white;
+				text-align: center;
+			}
+			
+			.contact h2 {
+				margin-bottom: 2rem;
+			}
+			
+			/* Footer */
+			.footer {
+				background: #1a202c;
+				color: white;
+				text-align: center;
+				padding: 2rem 0;
+			}
+			
+			/* Responsive */
+			@media (max-width: 768px) {
+				.nav-links {
+					display: none;
+				}
+				
+				.hero-content h1 {
+					font-size: 2.5rem;
+				}
+				
+				.about-content {
+					grid-template-columns: 1fr;
+				}
+				
+				.stats {
+					justify-content: center;
+				}
+			}
+		</style>
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<!-- Header -->
+		<header class="header">
+			<div class="container">
+				<nav class="nav">
+					<div class="logo">Diesel Dudes</div>
+					<ul class="nav-links">
+						<li><a href="#home">Home</a></li>
+						<li><a href="#services">Services</a></li>
+						<li><a href="#about">About</a></li>
+						<li><a href="#contact">Contact</a></li>
+					</ul>
+					<div class="contact-info">
+						<a href="tel:555-123-4567" class="phone">📞 (555) 123-DIESEL</a>
+					</div>
+				</nav>
+			</div>
+		</header>
+
+		<!-- Hero Section -->
+		<section class="hero" id="home">
+			<div class="container">
+				<div class="hero-content">
+					<h1>Expert Diesel Repair & Maintenance</h1>
+					<p>With over 25 years of experience, we specialize in heavy-duty diesel engines, fleet maintenance, and commercial vehicle repair. Your trusted partner for reliable diesel solutions.</p>
+					<a href="#contact" class="cta-button">Get Free Quote</a>
+				</div>
+			</div>
+		</section>
+
+		<!-- Services Section -->
+		<section class="services" id="services">
+			<div class="container">
+				<h2 class="section-title">Our Services</h2>
+				<div class="services-grid">
+					<div class="service-card">
+						<div class="service-icon">🚛</div>
+						<h3>Heavy Equipment Repair</h3>
+						<p>Complete repair and maintenance for construction equipment, agricultural machinery, and heavy-duty vehicles.</p>
+					</div>
+					<div class="service-card">
+						<div class="service-icon">⚙️</div>
+						<h3>Engine Diagnostics</h3>
+						<p>Advanced computer diagnostics and troubleshooting for all diesel engine makes and models.</p>
+					</div>
+					<div class="service-card">
+						<div class="service-icon">🔧</div>
+						<h3>Fleet Maintenance</h3>
+						<p>Comprehensive preventive maintenance programs to keep your fleet running efficiently and minimize downtime.</p>
+					</div>
+					<div class="service-card">
+						<div class="service-icon">🚚</div>
+						<h3>Commercial Vehicle Service</h3>
+						<p>Expert service for delivery trucks, buses, and commercial transportation vehicles.</p>
+					</div>
+					<div class="service-card">
+						<div class="service-icon">⛽</div>
+						<h3>Fuel System Service</h3>
+						<p>Fuel injection system cleaning, repair, and replacement for optimal engine performance.</p>
+					</div>
+					<div class="service-card">
+						<div class="service-icon">🛠️</div>
+						<h3>Emergency Repairs</h3>
+						<p>24/7 emergency roadside assistance and mobile repair services to get you back on the road.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- About Section -->
+		<section class="about" id="about">
+			<div class="container">
+				<div class="about-content">
+					<div>
+						<h2 class="section-title" style="text-align: left;">Why Choose Diesel Dudes?</h2>
+						<p style="margin-bottom: 1rem;">Founded in 1998, Diesel Dudes has been the go-to diesel repair shop for businesses and individuals throughout the region. Our certified technicians combine decades of experience with cutting-edge diagnostic equipment.</p>
+						<p style="margin-bottom: 1rem;">We understand that downtime costs money. That's why we work efficiently to get your equipment back in service as quickly as possible, without compromising on quality.</p>
+						<div class="stats">
+							<div class="stat">
+								<div class="stat-number">25+</div>
+								<div>Years Experience</div>
+							</div>
+							<div class="stat">
+								<div class="stat-number">15</div>
+								<div>Certified Techs</div>
+							</div>
+							<div class="stat">
+								<div class="stat-number">5000+</div>
+								<div>Repairs Complete</div>
+							</div>
+						</div>
+					</div>
+					<div>
+						<h3 style="margin-bottom: 1rem;">Our Process</h3>
+						<ul style="list-style: none; padding: 0;">
+							<li style="margin-bottom: 1rem; padding-left: 2rem; position: relative;">
+								<span style="position: absolute; left: 0; color: #2c5282; font-weight: bold;">1.</span>
+								<strong>Diagnosis:</strong> Comprehensive inspection and computer diagnostics
+							</li>
+							<li style="margin-bottom: 1rem; padding-left: 2rem; position: relative;">
+								<span style="position: absolute; left: 0; color: #2c5282; font-weight: bold;">2.</span>
+								<strong>Estimate:</strong> Transparent pricing with no hidden fees
+							</li>
+							<li style="margin-bottom: 1rem; padding-left: 2rem; position: relative;">
+								<span style="position: absolute; left: 0; color: #2c5282; font-weight: bold;">3.</span>
+								<strong>Repair:</strong> Quality parts and expert workmanship
+							</li>
+							<li style="margin-bottom: 1rem; padding-left: 2rem; position: relative;">
+								<span style="position: absolute; left: 0; color: #2c5282; font-weight: bold;">4.</span>
+								<strong>Testing:</strong> Rigorous testing to ensure proper operation
+							</li>
+							<li style="padding-left: 2rem; position: relative;">
+								<span style="position: absolute; left: 0; color: #2c5282; font-weight: bold;">5.</span>
+								<strong>Warranty:</strong> All work backed by our satisfaction guarantee
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Contact Section -->
+		<section class="contact" id="contact">
+			<div class="container">
+				<h2>Ready to Get Your Diesel Running Right?</h2>
+				<p style="margin-bottom: 2rem;">Contact us today for a free estimate on your diesel repair needs.</p>
+				<div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+					<a href="tel:555-123-4567" class="cta-button">📞 Call Now</a>
+					<a href="mailto:info@dieseldudes.com" class="cta-button">✉️ Email Us</a>
+				</div>
+				<div style="margin-top: 3rem;">
+					<h3>Visit Our Shop</h3>
+					<p>123 Industrial Drive<br>
+					Diesel City, ST 12345<br>
+					Mon-Fri: 7:00 AM - 6:00 PM<br>
+					Sat: 8:00 AM - 4:00 PM</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer class="footer">
+			<div class="container">
+				<p>&copy; 2024 Diesel Dudes. All rights reserved. | Licensed & Insured</p>
+			</div>
+		</footer>
 	</body>
 </html>
